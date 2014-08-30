@@ -1,0 +1,9 @@
+Options +FollowSymlinks
+RewriteEngine on
+RewriteCond %{HTTP_HOST} ^www\.(.*) [NC]
+RewriteRule ^(.*)$ http://%1/$1 [R=301,NC,L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+# RewriteRule ^[^/.]+\.[^/]+$ api.php?url=$0 [L]
+RewriteRule ^(.*)$ api.php?url=$0 [L]
